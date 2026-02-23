@@ -49,7 +49,7 @@ serde_json = { workspace = true, optional = true }
 sha2 = { workspace = true, optional = true }
 slotmap = { workspace = true }
 strum_macros = { workspace = true }
-tokio = { workspace = true }
+tokio = { workspace = true, optional = true, features = ["sync"] }
 
 [build-dependencies]
 sha2 = { workspace = true }
@@ -74,7 +74,7 @@ serde = [
   "slotmap/serde",
 ]
 parquet = ["polars-io/parquet", "polars-parquet"]
-cloud = ["polars-io/cloud"]
+cloud = ["polars-io/cloud", "dep:tokio"]
 ipc = ["polars-io/ipc"]
 json = ["polars-io/json", "polars-json"]
 scan_lines = []

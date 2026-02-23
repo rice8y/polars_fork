@@ -235,7 +235,7 @@ is_unique = ["polars-expr/is_unique"]
 cross_join = ["polars-plan/cross_join", "polars-ops/cross_join"]
 asof_join = [
   "polars-plan/asof_join",
-  "polars-stream/asof_join",
+  "polars-stream?/asof_join",
   "polars-time",
   "polars-ops/asof_join",
   "polars-mem-engine/asof_join",
