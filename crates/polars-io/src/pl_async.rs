@@ -272,7 +272,7 @@ impl RuntimeManager {
             eprintln!("blocking thread count: {max_blocking}");
         }
 
-        let rt = Builder::new_multi_thread()
+        let rt = Builder::new_current_thread()
             .worker_threads(n_threads)
             .max_blocking_threads(max_blocking)
             .enable_io()
@@ -292,7 +292,7 @@ impl RuntimeManager {
     where
         F: Future,
     {
-        tokio::task::block_in_place(|| self.rt.block_on(future))
+        self.rt.block_on(future)
     }
 
     /// Blocks this thread to evaluate the given future. Panics if the current
@@ -334,7 +334,7 @@ impl RuntimeManager {
             // We are a rayon thread, so we can't use POOL.spawn as it would mean we spawn a task and block until
             // another rayon thread executes it - we would deadlock if all rayon threads did this.
             // Safety: The tokio runtime flavor is multi-threaded.
-            tokio::task::block_in_place(func)
+            func()
         } else {
             let (tx, rx) = tokio::sync::oneshot::channel();
 

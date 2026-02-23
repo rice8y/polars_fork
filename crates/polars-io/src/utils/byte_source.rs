@@ -38,11 +38,8 @@ impl BufferByteSource {
         _cloud_options: Option<&CloudOptions>,
     ) -> PolarsResult<Self> {
         let file = Arc::new(
-            tokio::fs::File::open(path)
-                .await
+            std::fs::File::open(path)
                 .map_err(|err| _limit_path_len_io_err(path, err))?
-                .into_std()
-                .await,
         );
 
         Ok(Self(Buffer::from_owner(MMapSemaphore::new_from_file(
