@@ -74,7 +74,7 @@ serde = [
   "slotmap/serde",
 ]
 parquet = ["polars-io/parquet", "polars-parquet"]
-cloud = ["polars-io/cloud", "dep:tokio"]
+cloud = ["polars-io/cloud"]
 ipc = ["polars-io/ipc"]
 json = ["polars-io/json", "polars-json"]
 scan_lines = []
