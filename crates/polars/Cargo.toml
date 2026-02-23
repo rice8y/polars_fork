@@ -109,7 +109,7 @@ strings = ["polars-core/strings", "polars-lazy?/strings", "polars-ops/strings"]
 object = ["polars-core/object", "polars-lazy?/object", "polars-io/object", "polars-expr/object"]
 
 # support for arrows json parsing
-json = ["polars-io", "polars-io/json", "polars-lazy?/json", "polars-sql?/json", "dtype-struct", "new_streaming"]
+json = ["polars-io", "polars-io/json", "polars-lazy?/json", "polars-sql?/json", "dtype-struct"]
 
 scan_lines = ["polars-io", "polars-io/scan_lines", "polars-lazy?/scan_lines", "new_streaming"]
 
@@ -123,7 +123,7 @@ ipc_streaming = ["polars-io", "polars-io/ipc_streaming", "polars-lazy?/ipc"]
 avro = ["polars-io", "polars-io/avro"]
 
 # support for arrows csv file parsing
-csv = ["polars-io", "polars-io/csv", "polars-lazy?/csv", "polars-sql?/csv", "new_streaming"]
+csv = ["polars-io", "polars-io/csv", "polars-lazy?/csv", "polars-sql?/csv"]
 
 # slower builds
 performant = [
