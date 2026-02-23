@@ -273,9 +273,6 @@ impl RuntimeManager {
         }
 
         let rt = Builder::new_current_thread()
-            .worker_threads(n_threads)
-            .max_blocking_threads(max_blocking)
-            .enable_io()
             .enable_time()
             .build()
             .unwrap();
