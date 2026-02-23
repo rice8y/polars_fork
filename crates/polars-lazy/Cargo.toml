@@ -51,11 +51,11 @@ parquet = [
   "polars-stream?/parquet",
 ]
 async = [
-  "polars-io/cloud",
   "polars-mem-engine/async",
 ]
 cloud = [
   "async",
+  "polars-io/cloud",
   "polars-plan/cloud",
   "tokio",
   "futures",
